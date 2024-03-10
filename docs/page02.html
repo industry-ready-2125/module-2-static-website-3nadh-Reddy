@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eagle Register</title>
+    <link rel="stylesheet" href="registration.css">
+    <style>
+        body{
+            background-image: url('e8.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form action="home.html" onsubmit="return validate()">
+            <input type="text" id="uname" placeholder="Username" required>
+            <input type="password" id="passwd" placeholder="Password" required>
+            <input type="password" id="confpasswd" placeholder="Conform Password" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="tel" id="phn" placeholder="Mobile Number" required>
+            <div class="date">
+                <label class="tex"><pre><b>Date Of Birth:</b></pre></label>
+                <input type="date">
+            </div>
+            <input type="text" placeholder="Address">
+            <div class="dat">
+                <label class="text">Gender</label>
+                <div class="date">
+                    <input type="radio" name="gender" id="male">
+                    <label class="text">Male</label>
+                </div>
+                <div class="date">
+                    <input type="radio" name="gender" id="female">
+                    <label class="text">Female</label>
+                </div>
+                <div class="date">
+                    <input type="radio" name="gender" id="other">
+                    <label class="text">Other</label>
+                </div>
+            </div>
+            <input type="submit" class="submit">
+        </form>
+    </div>
+    <script>
+        function validate(){
+            var username = document.getElementById("uname");
+            var password = document.getElementById("passwd");
+            var confirmpassword = document.getElementById("confpasswd");
+            var mail = document.getElementById("email");
+            var phone = document.getElementById("phn");
+            if(username.value.length < 6){
+                alert("Username must be atleast 6 characters!");
+                return false;
+            }
+            if(password.value.length < 8){
+                alert("Password must be atleast 8 characters!");
+                return false;
+            }
+            if(password.value != confirmpassword.value){
+                alert("Password and confirm password must match!");
+                return false;
+            }
+            var emailregex = /^([a-z0-9\.-]+)@([a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+            if(!emailregex.test(mail.value)){
+                alert("Invalid Email format!");
+                return false;
+            }
+            var phnregex = /^[6-9][0-9]{9}$/;
+            if(!phnregex.text(phone.value)){
+                alert("Invalid mobile number!");
+                return false;
+            }
+            return true;
+        }
+        // const submitEl = document.querySelector(".submit");
+        // submitEl.addEventListener("click", () =>
+        // {
+        //     console.log("Validated" ? validate() : "Not validated");
+        // });
+    </script>
+</body>
+</html>
