@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EagleLogin</title>
+    <style>
+        *{
+            font-size: 25px;
+        }
+        body {
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f2a353;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('e9.jpg');
+            background-size: cover;
+        }
+        .login-container {
+            height: 45%;
+            width: 40%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 2px rgba(232, 34, 34, 0.1);
+            opacity: 0.8;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        .submit {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+        .submit:hover{
+            opacity: 1.0;
+            transform: scale(1.03);
+        }
+        .inner{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="week1&2.html" onsubmit="return validate()">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input class="submit" type="submit" value="submit">
+            <div class="inner">
+                <p><a href="forgot.html">Forgot password</a></p>
+                <p>Dont have an account&nbsp;&nbsp;<a href="registration.html">Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validate(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if(username == null || username == ""){
+                alert("Username cant be empty!");
+                return false
+            }
+            if(username.length < 6){
+                alert("Username must consist of 6 characters!");
+                return false;
+            }
+            if(password.length < 8){
+                alert("Password must consist of 8 characters!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
